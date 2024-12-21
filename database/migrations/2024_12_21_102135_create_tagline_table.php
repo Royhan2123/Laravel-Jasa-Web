@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('tagline', function (Blueprint $table) {
             $table->id();
+            $table->integer('services_id')->nullable();
+            $table->string('tagline');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
