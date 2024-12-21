@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('advantage_services', function (Blueprint $table) {
             $table->id();
+            $table->integer('services_id')->nullable();
+            $table->string('advantage');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
