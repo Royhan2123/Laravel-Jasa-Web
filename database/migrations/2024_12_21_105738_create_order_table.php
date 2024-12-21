@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tagline', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->integer('buyer_id')->nullable();
+            $table->integer('freelancer_id')->nullable();
             $table->integer('services_id')->nullable();
-            $table->string('tagline')->nullable();
-            $table->timestamps();
+            $table->longText('file')->nullable();
+            $table->longText('note')->nullable();
+            $table->date('expired')->nullable();
+            $table->integer('order_status_id')->nullable();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tagline');
+        Schema::dropIfExists('order');
     }
 };

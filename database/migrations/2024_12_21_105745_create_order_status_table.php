@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tagline', function (Blueprint $table) {
+        Schema::create('order_status', function (Blueprint $table) {
             $table->id();
-            $table->integer('services_id')->nullable();
-            $table->string('tagline')->nullable();
-            $table->timestamps();
+            $table->string('name');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tagline');
+        Schema::dropIfExists('order_status');
     }
 };
