@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('thumbnail_services', function (Blueprint $table) {
             $table->id();
+            $table->integer('services_id')->nullable();
+            $table->longText('thumbnail');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
