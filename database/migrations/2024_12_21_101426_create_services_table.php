@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->integer('users_id')->nullable();
+            // $table->integer('users_id')->nullable();
+            $table->foreignId('users_id')->nullable()
+            ->index('fk_to_user');
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->integer('delivery_time')->nullable();

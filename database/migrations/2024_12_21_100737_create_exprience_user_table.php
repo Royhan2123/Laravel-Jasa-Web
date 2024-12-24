@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('exprience_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('detail_user_id')->nullable();
+            $table->unsignedBigInteger('detail_user_id')->nullable()->index('fk_exprience_user_to_detail_user');
             $table->string('exprience')->nullable();
             $table->softDeletes(); 
             $table->timestamps();
