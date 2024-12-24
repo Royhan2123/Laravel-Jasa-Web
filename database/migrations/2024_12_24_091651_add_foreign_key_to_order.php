@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::table('order', function (Blueprint $table) {
             $table->foreign('buyer_id', 'fk_order_buyer_to_users')->references('id')
             ->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('freelancer_id', 'fk_order_freelancer_to_users')->references('id')
+            ->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('services_id', 'fk_order_to_service')->references('id')
+            ->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('order_status_id', 'fk_order_to_order_status')->references('id')
+            ->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -24,6 +30,9 @@ return new class extends Migration
     {
         Schema::table('order', function (Blueprint $table) {
             $table->dropForeign('fk_order_buyer_to_users');
+            $table->dropForeign('fk_order_freelancer_to_users');
+            $table->dropForeign('fk_order_to_service');
+            $table->dropForeign('fk_order_to_order_status');
         });
     }
 };
