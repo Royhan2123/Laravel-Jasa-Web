@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('thumbnail_services', function (Blueprint $table) {
             $table->id();
-            $table->integer('services_id')->nullable();
+            // $table->integer('services_id')->nullable();
+            $table->foreignId('services_id')->nullable()->
+            index('fk_thumbnail_service_to_service');
             $table->longText('thumbnail');
             $table->timestamps();
             $table->softDeletes();

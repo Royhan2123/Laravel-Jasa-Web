@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('services', function (Blueprint $table) {
-            $table->id();
+            $table->id();   
             // $table->integer('users_id')->nullable();
             $table->foreignId('users_id')->nullable()
             ->index('fk_to_user');

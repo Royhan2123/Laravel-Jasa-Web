@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('tagline', function (Blueprint $table) {
             $table->id();
-            $table->integer('services_id')->nullable();
+            // $table->integer('services_id')->nullable();
+            $table->foreignId('services_id')->nullable()
+            ->index('fk_tagline_to_service');
             $table->string('tagline')->nullable();
             $table->timestamps();
             $table->softDeletes();
