@@ -24,4 +24,9 @@ class ExprienceUser extends Model
         'created_at',
         'deleted_at',
     ];
+
+
+    public function detail_user() {
+        return $this->belongsTo(DetailUser::class, 'detail_user_id', 'id');
+    }
 }
