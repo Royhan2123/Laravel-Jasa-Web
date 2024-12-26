@@ -38,4 +38,12 @@ class Order extends Model
     public function user_freelancer(){
         return $this->belongsTo(User::class, 'freelancer_id', 'id');
     }
+
+    public function service() {
+        return $this->hasMany(Service::class, 'services_id');
+    }
+
+    public function order_status() {
+        return $this->belongsTo(OrderStatus::class, 'order_status_id', 'id');
+    }
 }

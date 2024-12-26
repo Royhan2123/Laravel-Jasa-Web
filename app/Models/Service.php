@@ -33,4 +33,24 @@ class Service extends Model
     public function user(){
         return $this->belongsTo(User::class, 'users_id', 'id');
     }
+
+    public function advantage_user() {
+        return $this->hasMany(AdvantageUser::class, 'services_id');
+    }
+
+    public function advantage_service() {
+        return $this->hasMany(AdvantageService::class, 'services_id');
+    }
+
+    public function thumbnail_service() {
+        return $this->hasMany(ThumbnailService::class, 'services_id');
+    }
+
+    public function tagline() {
+        return $this->hasMany(Tagline::class, 'services_id');
+    }
+
+    public function order() {
+        return $this->hasMany(Order::class, 'services_id');
+    }
 }

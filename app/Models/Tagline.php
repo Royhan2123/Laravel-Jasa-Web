@@ -26,4 +26,8 @@ class Tagline extends Model
     'deleted_at',
    ];
 
+   public function service() {
+      return $this->hasMany(Tagline::class, 'services_id');
+  }
+
 }

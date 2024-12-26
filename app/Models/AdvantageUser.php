@@ -23,4 +23,8 @@ class AdvantageUser extends Model
         'created_at',
         'deleted_at',
     ];
+
+    public function service() {
+        return $this->hasMany(Tagline::class, 'services_id');
+    }
 }

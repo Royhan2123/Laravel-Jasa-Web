@@ -24,4 +24,8 @@ class OrderStatus extends Model
         'deleted_at',
         'name',
     ];
+
+    public function order() { 
+        return $this->hasMany(Order::class, 'order_status_id');
+    }
 }
