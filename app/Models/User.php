@@ -70,17 +70,18 @@ class User extends Authenticatable
     /**
      * ONE TO ONE
      */
-
+    
     public function detail_user() {
         return $this->hasOne(DetailUser::class, 'users_id');
     }
+
 
      /**
      * ONE TO MANY
      */
     
      public function service() {
-        return $this->hasMany(Service::class, foreignKey: 'users_id');
+        return $this->hasMany(Service::class, 'users_id');
      }
 
      public function order_buyer() {
