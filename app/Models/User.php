@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,14 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+    use SoftDeletes;
+    protected $dates = [
+        'updated_at',
+        'created_at',
+        'deleted_at',
+        'email_verified_at',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -39,6 +48,7 @@ class User extends Authenticatable
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+
     ];
 
     /**
