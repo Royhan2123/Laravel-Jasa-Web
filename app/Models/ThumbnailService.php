@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ExprienceUser extends Model
+class ThumbnailService extends Model
 {
     use SoftDeletes;
 
-    public $table = 'exprience_user';
+    public $table = 'thumbnail_services';
+
     protected $dates = [
         'updated_at',
         'created_at',
@@ -18,8 +19,8 @@ class ExprienceUser extends Model
     ];
 
     protected $fillable = [
-        'detail_user_id',
-        'exprience',
+        'thubmnail',
+        'services_id',
         'updated_at',
         'created_at',
         'deleted_at',
