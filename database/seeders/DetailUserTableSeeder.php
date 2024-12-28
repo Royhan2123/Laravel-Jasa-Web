@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\DetailUser;
 use Illuminate\Database\Seeder;
 
 class DetailUserTableSeeder extends Seeder
@@ -12,6 +12,28 @@ class DetailUserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $detail_user = [
+            [
+                'users_id' => 1,
+                'photo' => '',
+                'role' => 'Website Developer',
+                'contact_number' => '',
+                'biography' => '',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'users_id' => 2,
+                'photo' => '',
+                'role' => 'Android Developer',
+                'contact_number' => '',
+                'biography' => '',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+        ];
+
+        DetailUser::insert($detail_user);
     }
 }
