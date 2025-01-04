@@ -2,6 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+// font 
+use App\Http\Controllers\Landing\LandingController;
+
+// member ( dashboard )
+use App\Http\Controllers\Dashboard\MemberController;
+use App\Http\Controllers\Dashboard\MyOrderController;
+use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\RequestController;
+use App\Http\Controllers\Dashboard\ServiceController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +24,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::resource('/', LandingController::class);
+
