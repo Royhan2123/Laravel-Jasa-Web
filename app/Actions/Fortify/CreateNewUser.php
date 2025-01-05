@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\DetailUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -26,10 +27,21 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        return User::create([
+
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+        ]);
+
+        // add to detail_user
+        $detail_user = DetailUser::create([
+            $this->createTeam($user),
+            'users_id'=>$user->id,
+            'photo'=>NULL,
+            'role'=>NULL,
+            'contact_number'=>NULL,
+            'biography'=>NULL,
         ]);
     }
 }
